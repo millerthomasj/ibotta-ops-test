@@ -4,7 +4,7 @@ driver_config:
   require_chef_omnibus: true
 
 platforms:
-  - name: ubuntu-12.04
+#  - name: ubuntu-12.04
   - name: centos-7.3
 
 suites:

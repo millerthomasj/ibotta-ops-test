@@ -9,3 +9,4 @@ default['ibotta']['ops']['git_repository'] = 'https://github.com/Ibotta/ops-dev-
 default['ibotta']['ops']['git_revision'] = 'master'
 
 default['ibotta']['ops']['dir'] = "/usr/share/#{node['ibotta']['ops']['name']}"
+default['ibotta']['ruby']['version'] = '2.3.1'

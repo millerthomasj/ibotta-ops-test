@@ -11,6 +11,7 @@ the following should work:
 
 ## Get the repository
 Clone Repository:
+
     https://github.com/millerthomasj/ibotta-ops-test.git
     cd ibota-ops-test
     bundle install
@@ -18,14 +19,17 @@ Clone Repository:
 
 ## Converge Centos Image with Kitchen
 Run the following command to converge a development server with Kitchen:
+
     bundle exec kitchen converge development
 
 ## Run serverspec tests
 Run all serverspec tests with the following command:
+
     bundle exec kitchen verify development
 
 ## Build all suites and run tests
 To run serverspec tests against all versions run:
+
     bundle exec kitchen test
 
 # Build ibotta-ops-test Production Server

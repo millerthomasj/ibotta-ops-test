@@ -14,6 +14,7 @@ Clone Repository:
     https://github.com/millerthomasj/ibotta-ops-test.git
     cd ibota-ops-test
     bundle install
+    bundle exec berks install
 
 ## Converge Centos Image with Kitchen
 Run the following command to converge a development server with Kitchen:

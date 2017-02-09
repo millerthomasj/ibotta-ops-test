@@ -5,15 +5,40 @@ driver_config:
   use_vagrant_berkshelf_plugin: true
 
 platforms:
-#  - name: ubuntu-12.04
-  - name: centos-7.3
-
-suites:
   - name: centos-7.3
     run_list:
       - recipe[yum-mysql-community::mysql57]
-      - recipe[ibotta-ops-test]
-  - name: default
+      - recipe[yum-repoforge]
+
+
+suites:
+  - name: production
     run_list:
       - recipe[ibotta-ops-test]
     attributes: {}
+    driver:
+      network:
+        - ["forwarded_port", {guest: 4567, host: 4568}]
+        - ["private_network", {ip: "192.168.38.10"}]
+  - name: test
+    run_list:
+      - recipe[ibotta-ops-test]
+    attributes:
+      ibotta:
+        ops:
+          rack_env: test
+    driver:
+      network:
+        - ["forwarded_port", {guest: 4567, host: 4569}]
+        - ["private_network", {ip: "192.168.38.11"}]
+  - name: development
+    run_list:
+      - recipe[ibotta-ops-test]
+    attributes:
+      ibotta:
+        ops:
+          rack_env: development
+    driver:
+      network:
+        - ["forwarded_port", {guest: 4567, host: 4570}]
+        - ["private_network", {ip: "192.168.38.12"}]
